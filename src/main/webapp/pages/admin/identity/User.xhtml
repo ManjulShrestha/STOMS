@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+    <h:outputStylesheet library="css" name="css/bootstrap/css/bootstrap.min.css"/>
+  </h:head>
+  <h:body>
+
+    <ui:composition template="#{navigationService.base}">
+      <ui:define name="title">
+        User Setting
+      </ui:define>
+
+      <ui:define name="body">
+        <p:tooltip />
+         <h:form id="growl_form">
+          <p:growl id="notification" sticky="false" showDetail="true" life="5000"  />
+        </h:form>
+        <h:form class="am-input-form" id="user-form">          
+          <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" widgetVar="deleteConfirm" >
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" 
+                             />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+          </p:confirmDialog>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 am-add-new">
+              <p:commandButton id="btnAddNew" value="#{msg.add}" action="#{userController.addNewUser}"
+                               update=":user-form" />
+            </div>
+          </div>
+          <div class="row" style="padding:2%; padding-top: 0px;">
+            <div class="col-lg-12 col-md-12 col-sm-12" id="table">                        
+              <p:dataTable id="am-role-table" 
+                           styleClass="am-primeface-datatable"
+                           var="user" 
+                           value="#{userController.userModel}" 
+                           paginator="true" 
+                           paginatorPosition="bottom" 
+                           paginatorAlwaysVisible="false"
+
+                           rows="10"  
+                           lazy="true"                           
+                           selectionMode="single"                            
+                           resizableColumns="false"
+                           rowIndexVar="index" 
+                           reflow="true"
+                           selection="#{userController.user}" >
+
+                <p:column headerText="#{msg.serialno}" class="id_header">
+                  <h:outputText value="#{index+1}" />
+                </p:column>
+                <p:column headerText="#{msg.name}" sortBy="#{user.nameEnglish}"  filterBy="#{user.nameEnglish}">
+                  <h:outputText value="#{user.nameEnglish}" />
+                </p:column>
+                <p:column headerText="#{msg.username}" sortBy="#{user.userName}" >
+                  <h:outputText value="#{user.userName}" />
+                </p:column>
+                <p:column headerText="#{msg.active}">
+                  <h:outputText value="#{user.active}" />
+                </p:column>
+
+                <p:column class="button_header" headerText="#{msg.action}">                                      
+                  <p:commandButton icon="ui-icon-pencil"
+                                   title="#{msg.edit}"                                                                                                            action="#{userController.onEditUser(user)}"
+                                   update=":user-form" >    
+                  </p:commandButton>
+                  <p:commandButton icon="ui-icon-plusthick"
+                                   title="Permisstions"   
+                                   action="#{userController.onEditPermission(user)}"
+                                   update=":user-form" >    
+                  </p:commandButton>
+                  <p:commandButton icon="ui-icon-trash"
+                                   title="#{msg.delete}"   
+                                   update=":user-form"
+                                   action="#{userController.onDeleteUser(user)}">
+                    <p:confirm header="Delete Record" message="Are you sure about deleting this record?" icon="ui-icon-alert"/>
+                  </p:commandButton>
+                  <p:commandButton icon="ui-icon-arrowreturnthick-1-w"
+                                   title="#{msg.reset}"   
+                                   update=":user-form"
+                                   action="#{userController.onResetPassword()}">
+                    <p:confirm header="Password Reset" message="Are you sure about reseting your password?" icon="ui-icon-alert"/>
+                  </p:commandButton>
+
+                </p:column>
+              </p:dataTable>
+            </div>                    
+            <div class="col-lg-12 col-md-12 col-sm-12">     
+              <p:panel id="details_container_member"
+                       class="my-modal"
+                       rendered="#{userController.renderEditPanel}"
+                       >
+                <p:panel id="toggleable" class="editPanel" 
+                         header="#{userController.isAddMode? msg.add:msg.update}" 
+                         widgetVar="panel" style="margin-bottom:20px"
+                         >
+                  <h:panelGrid  columns="1">
+
+                    <h:panelGrid id="am_dis_grid" columns="9" class="ui-fluid"
+                                 rendered="#{userController.renderAddForm}">
+
+                      <p:outputLabel for="am_name_english"  value="#{msg.first} #{msg.name} #{msg.eng}" />
+                      <p:inputText maxlength="#{uiValidator.defaultUserNameLength}" 
+                                   id="am_name_english"
+                                   required="true"
+                                   value="#{userController.employee.nameEnglish.firstName}"
+                                   styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                   requiredMessage="#{msg.invalid} #{msg.first} #{msg.name}"
+                                   >  
+                        <p:focus context="am_dis_grid"/>
+                      </p:inputText>
+                      <p:message for="am_name_english" display="tooltip" /> 
+
+
+                      <p:outputLabel for="am_middleName_english" value="#{msg.middle} #{msg.name} #{msg.eng}" />
+                      <p:inputText maxlength="#{uiValidator.defaultUserNameLength}" id="am_middleName_english" 
+                                   value="#{userController.employee.nameEnglish.middleName}"
+                                   />  
+                      <p:message for="am_middleName_english" />  
+
+
+                      <p:outputLabel  for="am_lastName_english" value="#{msg.last} #{msg.name} #{msg.eng}" />
+                      <p:inputText maxlength="#{uiValidator.defaultUserNameLength}" id="am_lastName_english" 
+                                   required="true"
+                                   styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                   requiredMessage="#{msg.invalid} #{msg.last} #{msg.name}"
+                                   value="#{userController.employee.nameEnglish.lastName}"
+                                   /> 
+                      <p:message for="am_lastName_english" display="tooltip"/>
+
+
+                      <p:outputLabel for="am_name_nepali" value="#{msg.first} #{msg.name} #{msg.nep}" />
+                      <p:inputText maxlength="#{uiValidator.defaultUserNameLength}" 
+                                   id="am_name_nepali"
+                                   required="true"
+                                   value="#{userController.employee.nameNepali.firstName}"
+                                   styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                   requiredMessage="#{msg.invalid} #{msg.first} #{msg.name}"
+                                   >  
+                        <p:focus context="am_dis_grid"/>
+                      </p:inputText>
+                      <p:message for="am_name_nepali" display="tooltip" />   
+
+
+                      <p:outputLabel for="am_middleName_nepali" value="#{msg.middle} #{msg.name} #{msg.nep}" />
+                      <p:inputText maxlength="#{uiValidator.defaultUserNameLength}" id="am_middleName_nepali" 
+
+                                   value="#{userController.employee.nameNepali.middleName}"
+                                   />  
+                      <p:message for="am_middleName_nepali" />  
+
+
+                      <p:outputLabel  for="am_lastName_nepali" value="#{msg.last} #{msg.name} #{msg.nep}" />
+                      <p:inputText maxlength="#{uiValidator.defaultUserNameLength}" id="am_lastName_nepali" 
+                                   required="true"
+                                   styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                   requiredMessage="#{msg.invalid} #{msg.last} #{msg.name}"
+                                   value="#{userController.employee.nameNepali.lastName}"
+                                   />  
+                      <p:message for="am_lastName_nepali" display="tooltip"/>  
+                      
+                      <p:outputLabel  for="am_username" value="#{msg.username}" />
+                      <p:inputText maxlength="#{uiValidator.defaultUserNameLength}" id="am_username" 
+                                   required="true"
+                                   styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                   placeholder="#{msg.first}#{msg.name}.#{msg.middle}#{msg.name}.#{msg.last}#{msg.name}"
+                                   requiredMessage="#{msg.invalid} #{msg.username}"
+                                   value="#{userController.user.userName}"
+                                   > 
+                       <p:ajax event="blur"
+                              listener="#{userController.checkUserName}"
+                              process="@this"
+                              update="@this"
+                              partialSubmit="true"
+                              />
+                       </p:inputText>
+                      <p:message for="am_username" display="tooltip"/>  
+
+
+                      <p:outputLabel for="am_active" value="#{msg.active}" />
+                      <p:selectBooleanCheckbox id="am_active" value="#{userController.user.active}" />
+                      <p:message for="am_active" />
+
+                      <p:outputLabel for="am_citizenship" value="#{msg.citizenship}" />
+                      <p:inputText maxlength="#{uiValidator.defaultMaxLength}" id="am_citizenship" 
+                                   value="#{userController.employee.citizenshipNo}"
+                                   required="true"
+                                   styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                   requiredMessage="#{msg.invalid} #{msg.citizenship}"
+                                   />  
+                      <p:message for="am_citizenship" display="tooltip" />
+
+                      <p:outputLabel for="am_gender" value="#{msg.gender}" />
+                      <p:selectOneRadio id="am_gender" class="am-selectoneradio"
+                                        value="#{userController.employee.gender}"
+                                        required="true"
+                                        styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                        requiredMessage="#{msg.invalid} #{msg.gender}"
+                                        >
+                        <f:selectItem itemLabel="#{msg.male}" itemValue="1"  />
+                        <f:selectItem itemLabel="#{msg.female}" itemValue="2" />
+                        <f:selectItem itemLabel="#{msg.other}" itemValue="0" />
+                      </p:selectOneRadio>
+                      <p:message for="am_gender" display="tooltip"/>
+
+                      <p:outputLabel for="am_mob" value="#{msg.contact} #{msg.number}" />
+                      <p:inputNumber maxlength="#{uiValidator.defaultPhoneNoLength}" 
+                                     id="am_mob" 
+                                     thousandSeparator=""
+                                     decimalPlaces="0"
+
+                                     placeholder="########"
+                                     maxValue="99999999999"
+                                     minValue="0"
+                                     styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                     requiredMessage="#{msg.invalid} #{msg.number}"
+                                     required="true"
+                                     value="#{userController.user.contactNo}"
+                                     />  
+                      <p:message for="am_mob" display="tooltip"/> 
+
+                      <p:outputLabel for="am_email" value="#{msg.email}" />
+                      <p:inputText maxlength="#{uiValidator.defaultMaxEmailLength}" 
+                                   id="am_email" 
+                                   value="#{userController.user.email}"
+                                   required="false"
+                                   placeholder="abc@abc.com"
+                                   styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                   requiredMessage="#{msg.invalid} #{msg.email}"
+                                   >
+                        <f:validateRegex
+                            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                      </p:inputText>
+                      <p:message for="am_email" display="tooltip" />
+
+                      <p:outputLabel for="am_section" value="#{msg.section}" />
+                      <p:selectOneMenu id="am_section" value="#{userController.selectedSection}" 
+                                       converter="selectOneMenuConverter"
+                                       styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                       requiredMessage="#{msg.invalid} #{msg.section}"
+                                       required="true">
+
+                        <f:selectItem itemLabel="#{msg.select}" itemValue="" noSelectionOption="true" />
+                        <f:selectItems var="section" value="#{userController.sections}" itemLabel="#{language.isNepali?section.nepaliName:section.name}" itemValue="#{section}" />
+                      </p:selectOneMenu>  
+
+                      <p:message for="am_section" display="tooltip"/> 
+
+                      <p:outputLabel for="am_staff_post" value="#{msg.post}" />
+                      <p:selectOneMenu id="am_staff_post" 
+                                       value="#{userController.selectedStaffPost}" 
+                                       styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                       requiredMessage="#{msg.invalid} #{msg.post}"
+                                       required="true"
+                                       converter="selectOneMenuConverter">
+                        <f:selectItem itemLabel="#{msg.select}" itemValue="" noSelectionOption="true" />
+                        <f:selectItems var="post" value="#{userController.staffPosts}" itemLabel="#{language.isNepali?post.nameNepaliame:post.nameEnglish}" itemValue="#{post}" />
+                      </p:selectOneMenu>   
+                      <p:message for="am_staff_post" display="tooltip"/> 
+
+                      <p:outputLabel for="am_staff_grade"  value="#{msg.grade}" />
+                      <p:selectOneMenu id="am_staff_grade" 
+                                       value="#{userController.selectedStaffGrade}"
+                                       styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                       requiredMessage="#{msg.invalid} #{msg.grade}"
+                                       required="true"
+                                       converter="selectOneMenuConverter">
+
+                        <f:selectItem itemLabel="#{msg.select}" itemValue="" noSelectionOption="true" />
+                        <f:selectItems var="grade" value="#{userController.staffGrades}" itemLabel="#{language.isNepali?grade.nameNepali:grade.nameEnglish}" itemValue="#{grade}" />
+                      </p:selectOneMenu>                                   
+                      <p:message for="am_staff_grade" display="tooltip"/> 
+
+                      <p:outputLabel for="am_office" value="#{msg.office}" />
+                      <p:selectOneMenu id="am_office" 
+                                       value="#{userController.selectedOffice}" 
+                                       required="true"
+                                       styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                       requiredMessage="#{msg.invalid} #{msg.office}"
+                                       converter="selectOneMenuConverter">
+
+                        <f:selectItem itemLabel="#{msg.select}" itemValue="" noSelectionOption="true" />
+                        <f:selectItems var="office" value="#{userController.offices}" itemLabel=" #{language.isNepali?office.nameNepali:office.nameEnglish }" itemValue="#{office}" />
+                      </p:selectOneMenu>                                   
+                      <p:message for="am_office" display="tooltip"/> 
+
+
+
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2" rendered="#{userController.renderPermissionForm}">
+                      <p:panel>
+                        <p:outputLabel for="am_picklist2" value="#{msg.select} #{msg.roleGroup}"/>
+                        <p:pickList id="am_picklist2" value="#{userController.roleGroupModel}" var="rolegroup" 
+                                    itemValue="#{rolegroup}" itemLabel="#{rolegroup.name}" converter="ModelConverter">
+                        </p:pickList>
+                      </p:panel>
+                      <p:panel>
+                        <p:outputLabel for="am_picklist" value="#{msg.select} #{msg.role}"/>
+                        <p:pickList id="am_picklist" value="#{userController.roles}" var="role" 
+                                    itemValue="#{role}" itemLabel="#{role.name}" converter="ModelConverter">
+                        </p:pickList>
+                      </p:panel>
+                    </h:panelGrid>
+
+
+                    <h:panelGrid id="am_resource_buttons" columns="2" cellpadding="5" columnClasses="am-action-button1,am-dis-grid-col2">
+                      <p:commandButton id="btnAdd" value="#{userController.isAddMode? msg.add : 'Update'}" 
+                                       action="#{userController.onUserFormSubmit}" 
+                                       disabled="#{userController.addButtonDisabled}"
+                                       onstart="PF('statusDialog').show()"
+                                       onsuccess="PF('statusDialog').hide()"
+                                       onerror="PF('statusDialog').hide()"              
+                                       update=":user-form" />  
+                      <p:commandButton id="btnCancel"  
+                                       value="#{msg.cancel}" 
+                                       action="#{userController.onCancelEditMode}" 
+                                       update=":user-form" 
+                                       disabled="#{userController.addButtonDisabled}"
+                                       immediate="true" />  
+                    </h:panelGrid>
+                  </h:panelGrid>           
+                </p:panel>
+              </p:panel>
+            </div>
+          </div>   
+
+        </h:form>
+        <p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+                  closable="false" resizable="false" showHeader="false">
+          <p:graphicImage name="/images/8.gif" /> <p:outputLabel value="#{userController.result}" />
+        </p:dialog>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>
+

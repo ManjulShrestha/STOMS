@@ -1,0 +1,30 @@
+body {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #212121;
+    -webkit-font-smoothing: antialiased;
+    padding: 0;
+    margin: 0;
+}
+
+body.layout-compact {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.layout-wrapper .topbar .topbar-left{
+    box-sizing: border-box;
+    padding: 20px;
+    height: 75px;
+    width: 250px;
+    background-color: #283593;
+    float: left;
+    -webkit-box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.layout-wrapper .topbar .topbar-right {
+    padding: 15px;
+}

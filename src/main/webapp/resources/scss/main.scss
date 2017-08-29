@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+/*
+* All the colors based on googles material design are defined here
+*/
+@import "base/color";
+
+/*
+* All the variables are defined here
+* Change the values of the variables to get a new theme
+*/
+@import "base/config";
+@import "am-base/am-themes.scss";
+
+@import "base/normalize";
+@import "base/global";
+@import "base/icons-material-design";
+@import "base/waves";
+// am project specifics
+@import "am-base/am-global";
+
+
+//@import "components/forms/forms";
+/*
+* Include all the component css here
+*/
+@import "components/_buttons";
+
+
+@import "am-components/onebutton";
+@import "am-components/inputswitch";
+@import "am-components/selectonemenu";
+@import "am-components/amloginform";
+@import "am-components/menubar";
+@import "am-components/amregistration";
+@import "am-components/amhomeselect";
+
+@import "am-components/_amInputForm";
+@import "am-components/_amMockupNav";
+@import "am-components/_amMockupSideNav";
+@import "am-components/_adminLteOverrides";
+@import "am-components/_sideInfoTable";
+
+@import "am-components/_dashboard";
+@import "am-components/_header";
+@import "am-components/_table";
+
+@import "am-components/_primefacesTableOverrides";
+@import "am-components/_email";
+@import "am-components/_selectionEditPanel";
+@import "am-components/_amWizard";
+@import "am-components/_amDialog";
+@import "am-components/_amContainer";
+@import "am-components/_amAccordion";
+@import "am-components/_ClimberCertificatePage";
+@import "am-components/_misc.scss";

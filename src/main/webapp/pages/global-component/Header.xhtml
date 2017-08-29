@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    </h:head>
+    <header class="main-header">
+        <h:form >
+            <nav class="row row-eq-height navbar navbar-fixed-top">
+                <div class="col-xs-11 col-lg-11 col-md-11 col-sm-11" >
+                    <span class="logo-lg" 
+                          style="font-size: 16px; font-weight: normal;color:white; line-height: 20px">
+                        <!--Dashboard-->
+                        <div class="pull-left image padding-5" >
+                            <p:graphicImage styleClass="padding-5" 
+                                            name="images/headphone.ico" 
+                                            height="65px" />
+                        </div>
+                        <div class="pull-left info">
+                            <div>STOMS</div>
+
+                        </div>
+                    </span>
+                </div>
+                <div class="header-options col-xs-1 col-sm-1 col-md-1 col-lg-1" >
+                    <!--          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 100%;" >-->
+                    <div class="row" style="height: 50%; padding-top:6px;">
+                        <div class="row flex-items-xs-between">
+                            <div class="col-xs-4">
+                                <div class="pull-right">
+                                    <div class="btn-group">                  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="pull-left">
+                                    <div class="btn-group">
+                                        <a type="button" class="am-nav-elem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="am-nav-icon fa fa-user"></span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><h:commandLink action="#{navigationService.redirect(navigationService.getPasswordChangePage(authorizationService.getUser().isOnline()))}"
+                                                               value="Change Password" 
+                                                               id="changePassword" 
+                                                               immediate="true" /></li>
+                                            <li><h:commandLink action="#{loginController.logout()}" 
+                                                               value="Logout" 
+                                                               id="logout" 
+                                                               immediate="true"/></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height: 50%;">
+                        <div class="row flex-items-xs-between">
+                            <div class="col-xs-4">
+                                <div class="pull-right">
+                                    <div class="btn-group">
+                                        <h:commandLink action="#{navigationService.redirect(navigationService.getHome(authorizationService.getUser().isOnline()))}"
+                                                       immediate="true"
+                                                       class="" >
+                                            <span class="am-nav-icon fa fa-home">  </span> 
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="pull-left">
+                                    <div class="btn-group">
+                                        <h:commandLink action="#{loginController.logout()}" 
+                                                       id="log" 
+                                                       immediate="true"
+                                                       >
+                                            <span class="am-nav-icon fa fa-sign-out">   </span> 
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--          </div>-->
+                </div>
+            </nav>
+        </h:form>
+    </header>
+</html>

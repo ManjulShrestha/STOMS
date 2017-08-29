@@ -1,0 +1,69 @@
+@import "../am-base/am-config";
+
+
+.am-login-form {
+    padding:$am-loginform-padding;
+    
+    .am-login-form-grid {
+        margin: $am-loginform-margin;
+        
+        .ui-inputfield {
+            padding:0px;
+            height:25px;
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+    
+}
+
+.am-login-panel {
+    margin-top: 20px;
+    padding: 20px 40px 20px 40px;
+}
+
+.am-login-action {
+    button {
+        font-size: 14px;
+        width: 100%;
+    }
+}
+
+.am-register {
+    margin-top: 15px;
+    label {
+        padding-right: 10px;
+    }
+}
+
+.am-login-logo-area {
+    text-align:center;
+    img{
+        width: 180px;
+        height: auto;
+        padding: 10px;
+    }
+}
+
+.login-language-panel{
+    float:right;
+}
+
+.login-info {
+        .header-txt{
+            font-size: $am-navbar-info-basefontsize;
+            padding-bottom: 0px;
+            padding-top :0px;
+        }
+        
+        .txt-gon {
+            color:#880000;
+        }
+        .txt-mctca {
+            
+        }
+        .txt-am {
+            font-size: 20px;
+            color:#267527;
+        }
+    }

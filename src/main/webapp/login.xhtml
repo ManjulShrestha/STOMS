@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+ >
+
+
+    <h:head>
+        <title>STOMS</title>
+        <link href="resources/fonts/MaterialIcons-Regular.woff2" rel="stylesheet"></link>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['images/flagNepal.ico']}"/>
+        <h:outputStylesheet library="css" name="css/bootstrap/css/bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl id="notification" sticky="false" showDetail="true" life="10000"  />
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 hid">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3 text-center">
+                                <div class="am-login-form">
+                                    <h:panelGrid columns="1" cellpadding="5" >
+                                        <p:inputText id="username" 
+                                                     label="username" 
+                                                     value="#{loginController.userName}" 
+                                                     styleClass="width-100" 
+                                                    />
+                                        <p:password 
+                                                    id="password"  
+                                                    label="password" 
+                                                    value="#{loginController.password}" 
+                                                    styleClass="width-100"                                                     
+                                                    autocomplete="off" />
+                                        <f:facet name="footer">
+                                            <div class="am-login-action">
+                                                <p:commandButton id="login"  value="login"
+                                                                 update="notification"
+                                                                 action="#{loginController.login}"
+                                                                 onstart="PF('statusDialog').show()"                                
+                                                                 onsuccess="PF('statusDialog').hide()"
+                                                                 onerror="PF('statusDialog').hide()"/>
+                                            </div>
+                                        </f:facet>
+                                        <!--<p:messages id="messages" for="username" showDetail="true" autoUpdate="true" closable="true" />-->
+                                    </h:panelGrid>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+      
+      <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+        <p:graphicImage name="/images/8.gif" /> <p:outputLabel value="Please Wait!" />
+      </p:dialog>
+      
+      <style id="antiClickjack">body{display:none !important;}</style>
+      <script type="text/javascript">
+   if (self === top) {
+       var antiClickjack = document.getElementById("antiClickjack");
+       antiClickjack.parentNode.removeChild(antiClickjack);
+   } else {
+       top.location = self.location;
+   }
+      </script>
+    </h:body>
+  
+</html>
+

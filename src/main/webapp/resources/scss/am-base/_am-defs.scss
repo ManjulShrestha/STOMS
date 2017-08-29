@@ -1,0 +1,45 @@
+@mixin padding_margin ($i) {
+  .padding-#{$i} {
+    padding: #{$i}px;
+  }
+  
+  .padding-top-#{$i}{
+    padding-top: #{$i}px;;
+  }
+  
+  .padding-right-#{$i}{
+    padding-right: #{$i}px;;
+  }
+  
+  .padding-bottom-#{$i}{
+    padding-bottom: #{$i}px;;
+  }
+  
+  .padding-top-#{$i}{
+    padding-bottom: #{$i}px;;
+  }
+  
+  .margin-#{$i} {
+    margin: #{$i}px;
+  }
+  
+  .margin-top-#{$i}{
+    margin-top: #{$i}px;;
+  }
+  
+  .margin-right-#{$i}{
+    margin-right: #{$i}px;;
+  }
+  
+  .margin-bottom-#{$i}{
+    margin-bottom: #{$i}px;;
+  }
+  
+  .margin-top-#{$i}{
+    margin-bottom: #{$i}px;;
+  }
+};
+
+@for $i from 1 through 10 {
+  @include padding_margin($i)
+}

@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+    <h:body>
+
+        <ui:composition template="#{navigationService.base}">
+            <ui:define name="title">
+                Product
+            </ui:define>
+
+            <ui:define name="body">
+                <p:tooltip />
+                <h:form id="growl_form">
+                    <p:growl id="notification" sticky="false" showDetail="true" life="5000"  />
+                </h:form>
+                <h:form class="am-input-form" id="product-form">          
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" widgetVar="deleteConfirm" >
+                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" 
+                                         />
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 am-add-new">
+                            <p:commandButton id="btnAddNew" 
+                                             value="Add new product" 
+                                             class="button-add"
+                                             action="#{productController.addNewProduct}"
+                                             update=":product-form" />
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-lg-12 col-md-12 col-sm-12" id="table">                        
+                            <p:dataTable id="am-role-table" 
+                                         styleClass="am-primeface-datatable"
+                                         var="product" 
+                                         value="#{productController.productDataModel}" 
+                                         paginator="true" 
+                                         paginatorPosition="bottom" 
+                                         paginatorAlwaysVisible="false"
+
+                                         rows="10"  
+                                         lazy="true"                           
+                                         selectionMode="single"                            
+                                         resizableColumns="false"
+                                         rowIndexVar="index" 
+                                         reflow="true"
+                                         selection="#{productController.product}" >
+
+                                <p:column headerText="S.N." class="id_header">
+                                    <h:outputText value="#{index+1}" />
+                                </p:column>
+                                <p:column headerText="Name" sortBy="#{product.nameEnglish}"  filterBy="#{product.nameEnglish}">
+                                    <h:outputText value="#{product.nameEnglish}" />
+                                </p:column>
+
+                                <p:column headerText="Code" sortBy="#{product.code}" filterBy="#{product.code}">
+                                    <h:outputText value="#{product.code}" />
+                                </p:column>
+
+                                <p:column headerText="Model">
+                                    <h:outputText value="#{product.model.nameEnglish}" />
+                                </p:column>
+
+                                <p:column headerText="Color">
+                                    <h:outputText value="#{product.color.nameEnglish}" />
+                                </p:column>
+
+                                <p:column headerText="Manufacturer">
+                                    <h:outputText value="#{product.manufacturer.nameEnglish}" />
+                                </p:column>
+
+
+                                <p:column class="button_header" headerText="#{msg.action}">                                      
+                                    <p:commandButton icon="fa fa-pencil"
+                                                     title="Edit"   
+                                                      class="button-edit"
+                                                     action="#{productController.onEditProduct(product)}"
+                                                     update=":product-form" >    
+                                    </p:commandButton>                  
+                                    <p:commandButton icon="fa fa-trash"
+                                                     title="Delete"   
+                                                     class="button-delete"
+                                                     update=":product-form"
+                                                     action="#{productController.onDeleteProduct(product)}">
+                                        <p:confirm header="Delete Record" message="Are you sure about deleting this record?" icon="ui-icon-alert"/>
+                                    </p:commandButton>                 
+
+                                </p:column>
+                            </p:dataTable>
+                        </div>                    
+                        <div class="col-lg-12 col-md-12 col-sm-12">     
+                            <p:panel id="details_container_member"
+                                     class="my-modal"
+                                     rendered="#{productController.renderEditPanel}"
+                                     >
+                                <p:panel id="toggleable" class="editPanel" 
+                                         header="#{productController.addMode? 'Add Product':'Update Product'}" 
+                                         widgetVar="panel" style="margin-bottom:20px"
+                                         >
+                                    <h:panelGrid  columns="1">
+
+                                        <h:panelGrid id="am_dis_grid" columns="9" class="ui-fluid"
+                                                     >
+
+                                            <p:outputLabel for="am_name_english"  value="Product Name" />
+                                            <p:inputText id="am_name_english"
+                                                         required="true"
+                                                         value="#{productController.product.nameEnglish}"
+                                                         styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                                         requiredMessage="Invalid Name"
+                                                         >  
+                                                <p:focus context="am_dis_grid"/>
+                                            </p:inputText>
+                                            <p:message for="am_name_english" display="tooltip" /> 
+
+                                            <p:outputLabel  for="am_code" value="Code" />
+                                            <p:inputText  id="am_code" 
+                                                          required="true"
+                                                          styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                                          requiredMessage="Invalid code"
+                                                          value="#{productController.product.code}"
+                                                          > 
+
+                                            </p:inputText>
+                                            <p:message for="am_code" display="tooltip"/>   
+
+                                            <p:outputLabel for="am_color" value="Color" />
+                                            <p:selectOneMenu id="am_color" value="#{productController.product.color}" 
+                                                             converter="selectOneMenuConverter"
+                                                             styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                                             requiredMessage="Please select color"
+                                                             required="true">
+
+                                                <f:selectItem itemLabel="Select Color" itemValue="" noSelectionOption="true" />
+                                                <f:selectItems var="color" value="#{productController.listColor}" 
+                                                               itemLabel="#{color.nameEnglish}" 
+                                                               itemValue="#{color}" />
+                                            </p:selectOneMenu>  
+                                            <p:message for="am_color" display="tooltip"/> 
+
+                                            <p:outputLabel for="am_manufacturer" value="Manufacturer" />
+                                            <p:selectOneMenu id="am_manufacturer" 
+                                                             value="#{productController.product.manufacturer}" 
+                                                             styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                                             requiredMessage="Please select manufacturer"
+                                                             required="true"
+                                                             converter="selectOneMenuConverter">
+                                                <f:selectItem itemLabel="Select Manufacturer"
+                                                              itemValue="" 
+                                                              noSelectionOption="true" />
+                                                <f:selectItems var="manufacturer" 
+                                                               value="#{productController.listManufacturer}" 
+                                                               itemLabel="#{manufacturer.nameEnglish}" 
+                                                               itemValue="#{manufacturer}" />
+                                            </p:selectOneMenu>   
+                                            <p:message for="am_manufacturer" display="tooltip"/> 
+
+                                            <p:outputLabel for="am_model"  value="Model" />
+                                            <p:selectOneMenu id="am_model" 
+                                                             value="#{productController.product.model}"
+                                                             styleClass="#{ component.valid ? '' : 'field-invalid'}"
+                                                             requiredMessage="Please select model"
+                                                             required="true"
+                                                             converter="selectOneMenuConverter">
+
+                                                <f:selectItem itemLabel="Select Model" 
+                                                              itemValue="" noSelectionOption="true" />
+                                                <f:selectItems var="model" value="#{productController.listModel}" 
+                                                               itemLabel="#{model.nameEnglish}" 
+                                                               itemValue="#{model}" />
+                                            </p:selectOneMenu>                                   
+                                            <p:message for="am_model" display="tooltip"/>     
+                                        </h:panelGrid>
+
+
+
+                                        <h:panelGrid id="am_resource_buttons" columns="2" cellpadding="5" columnClasses="am-action-button1,am-dis-grid-col2">
+                                            <p:commandButton id="btnAdd" value="#{productController.addMode? 'Add': 'Update'}" 
+                                                             action="#{productController.onFormSubmit}" 
+                                                             disabled="#{productController.addButtonDisabled}"
+                                                             onstart="PF('statusDialog').show()"
+                                                             onsuccess="PF('statusDialog').hide()"
+                                                             onerror="PF('statusDialog').hide()"              
+                                                             update=":product-form" />  
+                                            <p:commandButton id="btnCancel"  
+                                                             value="Cancel" 
+                                                             action="#{productController.onCancel}" 
+                                                             update=":product-form" 
+                                                             disabled="#{productController.addButtonDisabled}"
+                                                             immediate="true" />  
+                                        </h:panelGrid>
+                                    </h:panelGrid>           
+                                </p:panel>
+                            </p:panel>
+                        </div>
+                    </div>   
+
+                </h:form>
+                <p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+                          closable="false" resizable="false" showHeader="false">
+                    <p:graphicImage name="/images/8.gif" />
+                </p:dialog>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

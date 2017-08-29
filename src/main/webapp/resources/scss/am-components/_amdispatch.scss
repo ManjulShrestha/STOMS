@@ -1,0 +1,36 @@
+@import "../am-base/am-config";
+
+.am-dis-grid-col1 {
+    width:35%;
+    @media #{$screen-lg} {
+        width:25%;
+    }
+    
+    @media #{$screen-md} {
+        width:25%;
+    }
+}
+
+.am-dis-grid-col2 {
+    width:45%;
+    @media #{$screen-lg} {
+        width:50%;
+    }
+    
+    @media #{$screen-md} {
+        width:50%;
+    }
+}
+
+.am-dis-grid-col3 {
+    width:20%;
+    .ui-messages-error {
+        border:none;
+        margin:0px;
+        padding: 5px 5px 5px 5px;
+    }
+}
+
+.am-dis-submit {
+    text-align: center;
+}

@@ -1,0 +1,230 @@
+/*
+    Global settings defination for am project only
+*/
+@import "am-config";
+
+body{
+    font-size: $global-font-size;
+    background: $body-color;
+}
+
+.width-100 {
+    width:100%;
+}
+
+.container-fluid{
+  margin:0px !important;
+  padding:0px !important;
+}
+
+/*footer*/
+footer{
+background: #dfe2e2;
+padding: 15px 20px;
+}
+footer ul, footer p{
+margin-bottom: 0;
+}
+/*footer .footer-block{
+margin-bottom: 30px;
+}*/
+footer a{
+color: #188b87;
+}
+footer .footer-menu a{
+text-transform: uppercase;
+}
+footer .social-icon a{
+display: block;
+width: 40px;
+height: 40px;
+line-height: 40px;
+text-align: center;
+border:1px solid #ddd;
+}
+@media (max-width: 767px){
+footer .footer-menu{
+text-align: center;
+}
+footer .social-icon{
+float: none !important;
+text-align: center;
+}
+}
+
+
+/*Dashboard hover effects*/
+.am-thumbnail {
+  margin-left: 0px;
+  -webkit-transition: margin 0.5s ease;
+     -moz-transition: margin 0.5s ease;
+       -o-transition: margin 0.5s ease;
+      -ms-transition: margin 0.5s ease;
+          transition: margin 0.5s ease;
+}
+ 
+.am-thumbnail:hover {
+  margin-left: -12px;
+}
+
+
+/*acts as container for the form*/ 
+@media #{$medium-and-up} {
+    .input-form {
+        padding-left: 5%;
+    }
+}
+
+.am-background{
+    background-color:  $primary-color;    
+}
+.am-footer{
+    bottom: 0; 
+    position: relative; 
+    width:100%;
+}
+.ui-growl{        
+    z-index: 9999 !important ;
+    
+}
+
+.am-align-center {
+    text-align: center;
+}
+
+.am-align-left {
+    text-align: left;
+}
+
+.am-align-right {
+    text-align: right;
+}
+
+.ui-selectonemenu-panel {
+    z-index: 2000 !important;
+}
+
+.am-font-12 {
+    font-size: 12px;
+}
+
+.am-panel-shadow {
+    -webkit-box-shadow: 0px 7px 25px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 25px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 25px -2px rgba(0,0,0,0.75);
+}
+
+.am-color-red{
+    background:red;
+}
+
+.am-color-grey{
+    background:grey;
+}
+
+.am-color-yellow{
+    background:yellow;
+}
+
+.am-color-green{
+    background:green;
+}
+
+.ui-clock {
+    background: #222d32 !important;
+    color: white !important;
+    border: none !important;
+    font-weight: normal !important;
+}
+
+.row-eq-height{
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.ndp-nepali-calendar{
+  width: 60%;
+}
+
+.btn-submit{
+    color: white !important;
+    background: $secondary-color-dark !important;
+    float: right !important;
+    font-size: 15px !important;
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+    border-style: none !important;
+}
+
+.ui-widget-content{
+    border: none !important;
+}
+
+.field-invalid{
+    border-color: red !important;    
+}
+
+
+/* Datatable color and size */
+
+.ui-datatable tbody td{
+  border-color: white !important;
+}
+
+
+/*  .rowStyleX tr{
+        background-color: red !important;
+    }*/
+
+.ui-datatable-header{
+  background: blue;
+}
+
+.ui-paginator.ui-paginator-bottom {
+  height:37px;
+}
+
+.ui-growl-warn{
+    background: $warn-color !important;
+}
+
+.ui-growl-error{
+    background: $error-color !important;
+}
+
+.ui-growl-info{
+    background: $link-color !important;
+}
+.ui-growl-fatal{
+    background: $fatal-color !important;
+}
+.chart-legend table.jqplot-table-legend {
+    background-color: none !important;
+    border: none !important;
+}
+
+.barChartStyleClass table.jqplot-table-legend {
+/*    top:50px !important;
+    right:50px !important;*/
+    bottom:50px !important;
+    background-color: none !important;
+    border: none !important;
+    //more css here
+}
+.button-delete{
+    color: $error-color !important;
+    background: none !important;
+}
+
+.button-edit{
+    color: $link-color !important;
+    background: none !important;
+}
+
+.button-add{
+    color:  $success-color  !important;
+    background: none !important;
+}

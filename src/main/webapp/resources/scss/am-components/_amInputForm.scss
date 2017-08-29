@@ -1,0 +1,95 @@
+$input-form-body-background : #FFFFFF;
+$input-form-header-background : #FFFFFF;
+$input-form-fields-background : #FFFFFF;
+$input-form-header-size : 18px;
+$input-form-panel-opacity : 0.86;
+
+$input-form-section-header-size : 20px;
+$input-form-field-label-size : 14px;
+$submit-button-color : #3994D6;
+
+.am-travel-agency{
+    background-image: url("\#{resource['images/mountain-lake.jpg']}");
+    background-size:cover;
+    padding : 20px 45px;
+}
+
+.am-input-form{
+    padding-bottom: 7px;
+    
+    .am-form-header-wrapper{
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0);
+        
+        .am-form-header{
+            /*background: $input-form-header-background;*/ 
+            background-color: rgba($input-form-header-background, 1);
+            display: inline-block; 
+            font-weight: bold; 
+            font-size: $input-form-header-size;
+            padding : 5px 15px;
+        }
+    }
+    
+    .am-form-body-panel{
+        background-color: rgba($input-form-body-background, $input-form-panel-opacity);
+        margin-bottom: 20px; 
+        border: 0px solid;
+/*        border-top-left-radius:0px; 
+        border-top-right-radius:0px;*/
+    }
+    
+    .am-form-footer{
+        background-color: rgba($input-form-body-background, $input-form-panel-opacity);
+    }
+    
+    .am-form-section-header{
+        font-size: $input-form-section-header-size;
+        font-weight: bold;
+        border-bottom: 1px solid #DBDBDB;
+    }
+    
+    .am-form-label{
+        font-size: $input-form-field-label-size;
+        font-weight: bold;
+    }
+    
+    td,th{
+        padding : 6px 5px;
+    }
+    
+    .submit-button{
+        width:10%; 
+        margin: 0px auto;
+        
+        .ui-button{
+            width: 135px;
+            height: 40px;
+        }
+        
+        .ui-state-default{
+            background: $submit-button-color;
+        }
+        
+/*        .ui-state-hover{
+            background: $submit-button-color;
+        }*/
+        
+        .ui-button-text{
+            color: white;
+        }
+    }
+    
+/*    .am-form-footer-wrapper{
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0);
+        padding : 0px;
+        
+        .am-form-footer{
+            display: inline-block; 
+            font-weight: bold; 
+            font-size: $input-form-header-size;
+            color: white;
+        }
+    }*/
+}

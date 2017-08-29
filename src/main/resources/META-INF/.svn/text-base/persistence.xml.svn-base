@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="dot" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- <jta-data-source>java:jboss/datasources/dot</jta-data-source> -->
+		<!-- <jta-data-source>java:jboss/datasources/dot-live</jta-data-source> -->
+		<!-- <jta-data-source>java:jboss/datasources/dot-test</jta-data-source>	 -->	
+		<jta-data-source>java:jboss/datasource/dot-v3</jta-data-source>
+
+
+		<properties>
+			<!-- Never ever change to "update" -->
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.connection.CharSet" value="utf8" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="true" />
+			<property name="hibernate.jdbc.use_get_generated_keys" value="true" />
+			<property name="hibernate.enable_lazy_load_no_trans" value="false" />
+			<property name="hibernate.connection.autocommit" value="false" />
+			<property name="JDBC.DefaultAutoCommit" value="false" />
+
+			<!-- <property name="hibernate.connection.useUnicode" value="true" /> 
+				<property name="hibernate.connection.characterEncoding" value="UTF-8" /> -->
+			<property name="hibernate.ejb.interceptor"
+				value="com.yco.dot.soa.audit.AuditLogInterceptor" />
+		</properties>
+	</persistence-unit>
+
+</persistence>

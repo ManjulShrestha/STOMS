@@ -1,0 +1,43 @@
+@import "../am-base/am-config";
+
+.GON{
+
+}
+
+.ministry{
+    margin-top: .2em;
+    margin-bottom: .5em;
+    font-size: 1.4em;
+}
+
+.department{
+    font-size: 2em;
+}
+.dropdown-menu{
+    min-width: 0em;
+
+    li{
+        a{
+            padding-left:1em; 
+            padding-right: 1em;
+        }
+    }
+}
+.header-options{
+    padding:0px;
+}
+.headerRhsIconsDiv{
+    text-align: center;
+    padding-top:2px;
+}
+.headerRhsIconsDiv:hover{
+    background-color:#00796b;
+}
+/*doesnot include the En/Ne text*/
+.headerRhsIcons{
+    font-size: 2em; 
+    color: white;   
+    
+}
+
+

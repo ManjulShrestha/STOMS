@@ -1,0 +1,39 @@
+@import "../am-base/am-config";
+
+.am-selectone .ui-state-active {
+  background:$am-onebutton-selected;
+  .ui-button-text{
+    color:$am-onebutton-selectedtext;
+  }
+}
+
+//approve, reject and revise buttons
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only.rejectButton{
+  background: #dd4b39 !important;
+  color: white;
+}
+
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only.reviseButton{
+
+  background: #0882ca !important;
+  color: white;
+
+}
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only.approveButton{  
+  background: #009688 !important;
+  color: white;
+
+}
+
+.ui-confirmdialog-yes{
+  background: #009688 !important;
+  color: white !important;
+    
+}
+.ui-confirmdialog-no{
+    background: #dd4b39 !important;
+    color: white !important;
+}

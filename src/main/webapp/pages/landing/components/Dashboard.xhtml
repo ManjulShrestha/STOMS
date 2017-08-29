@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!-- 
+   Created By: Bhisma
+   Created On: 2016/11/23
+   Changes date and status: Manjul
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      >   
+    <h:body >   
+
+        <div id="dashBoard">
+            <h:form>
+                <div class="row">
+                    <div class="row">                                          
+                       
+
+                        <h:commandLink                                                       
+                            immediate="true" 
+                            rendered="true"
+                            >
+                            <div class = "col-sm-6 col-md-4">
+                                <div href = "#" class = "thumbnail am-thumbnail">
+                                    <div class="am-logo am-align-center">
+                                        <span class="am-icon icon-stack">   </span>
+                                    </div>
+                                    <div class="am-title am-align-center">
+                                        <h:outputLabel value="Stock" />
+                                    </div>
+                                </div>
+                            </div>
+                        </h:commandLink>
+
+
+                        <h:commandLink
+                          
+                            immediate="true"
+                           
+                            >             
+                            
+                            <div class = "col-sm-6 col-md-4">
+                                <div href = "#" class = "thumbnail am-thumbnail">
+
+                                    <div class="am-logo am-align-center">
+                                        <span class="am-icon icon-folder-plus">   </span>
+                                    </div>
+                                    <div class="am-title am-align-center">
+                                        <h:outputLabel value="Buy"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </h:commandLink>
+
+
+                        <h:commandLink
+                         
+                            immediate="true"
+                                                       >              
+                            <div class = "col-sm-6 col-md-4">
+                                <div href = "#" class = "thumbnail am-thumbnail">
+                                    <div class="am-logo am-align-center">
+                                        <span class="am-icon icon-folder-minus">   </span>
+                                    </div>
+                                    <div class="am-title am-align-center">
+                                        <h:outputLabel value="Sell"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:commandLink>
+
+
+
+                        <h:commandLink
+                          
+                            >              
+                            <div class = "col-sm-6 col-md-4">
+                                <div href = "#" class = "thumbnail am-thumbnail">
+                                    <div class="am-logo am-align-center">
+                                        <span class="am-icon icon-book">   </span>
+                                    </div>
+                                    <div class="am-title am-align-center">
+                                        <h:outputLabel value="Book"/>
+                                    </div>
+                                </div>
+                            </div> 
+                        </h:commandLink>
+
+
+
+                        <h:commandLink
+                         
+                            >               
+                            <div class = "col-sm-6 col-md-4">
+                                <div href = "#" class = "thumbnail am-thumbnail">
+                                    <div class="am-logo am-align-center">
+                                        <span class="am-icon icon-wrench">   </span>
+                                    </div>
+                                    <div class="am-title am-align-center">
+                                        <h:outputLabel value="Setting"/>
+                                    </div>
+                                </div>
+                            </div> 
+                        </h:commandLink>
+
+                    </div>
+                </div>
+
+            </h:form>
+        </div>
+    </h:body>
+
+</html>

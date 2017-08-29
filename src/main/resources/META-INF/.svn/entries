@@ -1,0 +1,40 @@
+10
+
+dir
+60817
+svn://svn.yco.com.np/YomariProjects/JAVA/DOT/Code/Trunk/DOT-SOA/src/main/java/META-INF
+svn://svn.yco.com.np
+
+
+
+2017-06-14T03:57:50.243265Z
+60772
+manjul.shrestha
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5a4332c2-8f93-483a-aa04-20cfaa60c109
+
+persistence.xml
+file
+
+
+
+
+
+bfaeac1787321a6d06326b0b88be1419
+2017-06-14T03:57:50.243265Z
+60772
+manjul.shrestha
+

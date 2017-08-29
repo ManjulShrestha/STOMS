@@ -1,0 +1,19 @@
+@import "../am-base/am-config";
+
+.application-new { 
+    color: $new-color;
+}
+.application-forwarded { 
+    color: $forwarded-color;
+}
+.application-approved { 
+    color: $approved-color;
+}
+.application-rejected { 
+    color: $rejected-color;
+}
+.application-revise { 
+    color: $revise-color;
+}
+
+

@@ -1,0 +1,51 @@
+$theme:"teal_green";
+
+
+
+/*Blue*/
+$accent-color:         #2196F3;         /*500*/
+$accent-text-color : #FFFFFF;
+
+$primary-color-text:   #FFFFFF;
+$secondary-text-color: #727272;
+
+$divider-color:        #B6B6B6;
+$body-color : #FAFAFA;
+
+@if $theme == "teal_green"{
+  
+
+    /*Blue*/
+    $accent-color:         #2196F3;         /*500*/
+    $accent-text-color : #FFFFFF;
+
+    $primary-color-text:   #FFFFFF;
+    $secondary-text-color: #727272;
+
+    $divider-color:        #B6B6B6;
+    $body-color : #FAFAFA;
+}
+
+@else if $theme=="government_shades"{
+   
+
+    /*Blue*/
+    $accent-color:         #2196F3;         /*500*/
+    $accent-text-color : #FFFFFF;
+
+    $primary-color-text:   #FFFFFF;
+    $secondary-text-color: #727272;
+
+    $divider-color:        #B6B6B6;
+    $body-color : #FAFAFA;
+
+    
+
+}
+/*Button colors*/
+    $new-color:#b6ca08;     /*not finalized yet*/
+    $forwarded-color:#6e7a06;     /*not finalized yet*/
+    $approved-color:#009688;
+    $rejected-color:#dd4b39;
+    $revise-color: #0882ca;
+

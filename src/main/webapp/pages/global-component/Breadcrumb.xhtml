@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"     
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <body>     
+      <section class="content-navigation-header">
+        
+        <button type="button" class="backButton" onclick="window.history.back();">
+          <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+        </button>
+        <!--Dashboard-->
+        <ol class="breadcrumb" >
+          <li><a href="#"><i class="fa fa-dashboard">
+<!--                <p:breadCrumb model="#{breadCrumb.menuModel}"></p:breadCrumb>-->
+              </i>#{msg.dashboard}</a></li>
+        </ol>
+        
+      </section>
+    <style id="antiClickjack">body{display:none !important;}</style>
+      <script type="text/javascript">
+   if (self === top) {
+       var antiClickjack = document.getElementById("antiClickjack");
+       antiClickjack.parentNode.removeChild(antiClickjack);
+   } else {
+       top.location = self.location;
+   }
+      </script>
+  </body>
+</html>
+

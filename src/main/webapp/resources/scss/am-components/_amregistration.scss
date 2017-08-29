@@ -1,0 +1,41 @@
+@import "../am-base/am-config";
+
+.am-reg-grid-col1 {
+    width:35%;
+    @media #{$screen-lg} {
+        width:25%;
+    }
+    
+    @media #{$screen-md} {
+        width:25%;
+    }
+}
+
+.am-reg-grid-col2 {
+    width:45%;
+    @media #{$screen-lg} {
+        width:50%;
+    }
+    
+    @media #{$screen-md} {
+        width:50%;
+    }
+}
+
+.am-reg-grid-col3 {
+    width:20%;
+    .ui-messages-error {
+        border:none;
+        margin:0px;
+        padding: 5px 5px 5px 5px;
+    }
+}
+
+.reg-input-form .am-reg-submit {
+    text-align: center;
+}
+
+.reg-input-form .ui-panel-titlebar {
+    //background-color: $primary-color;
+}
+

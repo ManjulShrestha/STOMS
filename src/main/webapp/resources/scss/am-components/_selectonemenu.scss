@@ -1,0 +1,24 @@
+@import "../am-base/am-config";
+
+
+.ui-selectonemenu-panel .ui-selectonemenu-items-wrapper .ui-selectonemenu-items .ui-state-highlight{
+    background:$am-selectonemenu-onselectbgcolor;
+}
+
+.ui-selectonemenu-panel .ui-selectonemenu-list-item {
+  border: 0 none;
+  margin: 1px 0;
+  padding: 3px 5px;
+  text-align: left;
+  white-space: nowrap;
+  font-size: small;
+}
+
+
+/*.ui-selectonemenu .ui-selectonemenu-trigger{
+    width:20% !important;
+}*/
+
+/*.ui-selectonemenu-panel .ui-widget .ui-widget-content .ui-corner-all .ui-helper-hidden .ui-shadow{
+    font-size:1em;
+}*/

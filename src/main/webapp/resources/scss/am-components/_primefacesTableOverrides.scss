@@ -1,0 +1,97 @@
+.am-primeface-datatable{
+    font-size: 12px !important;
+
+    thead{
+        /*background: $primary-color-light;*/
+
+        th{
+            background: $primary-color-light !important;
+            color: white !important;
+            border:0px !important;
+            border-radius: 0px !important;
+            text-shadow : none !important;
+        }
+
+        th:first-child{
+            border-left-width: 0px;
+            border-right-width: 0px;
+        }
+
+        .ui-state-active{
+             background-color: $primary-color-dark;
+        }
+    }
+
+    .ui-state-highlight{
+        background-color: $primary-color-light;
+    }
+
+    .ui-state-default .ui-icon {
+        background-image: url(/DOT/javax.faces.resource/images/ui-icons_333333_256x240.png.xhtml?ln=primefaces-bootstrap); 
+    }
+
+    /*    .ui-state-hover{
+            background: $secondary-color-dark;
+        }*/
+
+    .ui-paginator-bottom{
+        // background: $primary-color-light;
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+
+        .ui-paginator-pages{
+            position: relative;
+            // top: -3px;
+            a{
+                border: 0px;
+                border-radius: 0px;
+            }
+            .ui-paginator-page{
+                background: #FAFAFA;
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+        }
+
+        .ui-paginator-first, .ui-paginator-prev, .ui-paginator-next, .ui-paginator-last {
+            position : relative;
+            top: 6px;
+            padding-top : 0px;
+            overflow: hidden;
+            border: 0px;
+            border-radius: 0px;
+            span{
+                margin-bottom: -6px;
+                margin-top : 4px;
+            }
+        }
+
+        .ui-paginator-rpp-options{
+            position: relative;
+            top: -2px;
+            border-radius: 0px;
+        }
+    }
+
+    .ui-column-filter {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    .ui-column-filter .ui-state-hover{
+        background: #FAFAFA;
+    }
+    
+    .ui-datatable-tablewrapper {
+        .ui-datatable-data {
+            tr{
+                td {
+                    text-align: center;
+                }
+            }
+            .ui-outputlabel {
+                font-weight: normal
+            }
+        }
+    }
+}

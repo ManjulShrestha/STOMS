@@ -1,0 +1,16 @@
+@import "../am-base/am-config";
+
+.font-12px {
+    font-size: 12px !important;
+}
+
+.search-bar {
+    font-size: 12px;
+    .ui-inputnumber {
+        padding-right: 10px;
+    }
+}
+
+.searched-content {
+    font-size: 12px !important;
+}

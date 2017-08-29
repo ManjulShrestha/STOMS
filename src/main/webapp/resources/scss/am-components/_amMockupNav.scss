@@ -1,0 +1,91 @@
+
+.am-mockup-nav{
+    .am-nav-wrapper{
+        text-align: center;
+        /*background-color: rgba(0, 0, 0, 0);*/
+
+        .am-nav-header-section{
+            /*background-color: rgba($input-form-header-background, 1);*/
+            /*vertical-align: top;*/
+            /*display: inline-block;*/ 
+            font-weight: bold; 
+            font-size: $input-form-header-size;
+            padding : 2px 15px;
+            color : black;
+        }
+    }
+
+    .am-nav-relative{
+        position: relative;
+        top: -88px;
+    }
+    
+    .am-left-logo{
+        padding-top : 7px;
+    }
+}
+
+/*temporary fallback to white color*/
+.am-header{
+    background: #FAFDFF;
+}
+
+.am-nav-button{
+    /*        width:10%; 
+            margin: 0px auto;*/
+
+    .ui-button{
+        width: 150px;
+        height: 30px;
+    }
+
+    /*fallback color for navigation buttons*/
+    .ui-state-default{
+        background: blue;
+    }
+    /*        .ui-state-hover{
+                background: $submit-button-color;
+            }*/
+
+    .ui-button-text{
+        color: white;
+        font-size: 16px;
+        font-weight: normal;
+    }
+}
+
+
+.green-button{
+    /*fallback color for navigation buttons*/
+    .ui-state-default{
+        background: #2D6333;
+    }
+}
+
+.blue-button{
+    /*fallback color for navigation buttons*/
+    .ui-state-default{
+        background: #3163AD;
+    }
+}
+
+.orange-button{
+    /*fallback color for navigation buttons*/
+    .ui-state-default{
+        background: #F36A25;
+    }
+}
+
+.red-button{
+    /*fallback color for navigation buttons*/
+    .ui-state-default{
+        background: #E01A21;
+    }
+}
+
+
+.am-header {
+    .am-navbar {
+        height: 113px;
+    }
+}

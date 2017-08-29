@@ -1,0 +1,20 @@
+@import "../am-base/am-config";
+
+#sideInfoBar {    
+    .timeDisplay {        
+                 
+            color: $primary-color-light; 
+            text-align: center;
+        
+    }
+    .sideinfobar-border{
+        border-top: $primary-color-light solid 0.2em;
+        border-right: $primary-color-light solid 0.2em;
+        border-left: $primary-color-light solid 0.2em;
+        border-radius: 10px 10px;
+        margin-bottom: 1em;
+        padding: 0.5em;
+        color: $primary-color-light; 
+    }
+}
+

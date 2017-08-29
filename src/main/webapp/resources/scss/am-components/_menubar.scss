@@ -1,0 +1,102 @@
+/*.navigation-bar{
+    background: $primary-color-dark !important;
+    color : white !important;
+    border : none !important;
+    border-radius: 0px !important;
+    display: block !important;
+    position: relative !important;
+
+    .nav-item{
+        color : white !important;
+        width : 102px;
+        height : 80px;
+        display : block;
+        position: relative;
+        font-size : 14px;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: block !important;
+        position: relative !important;
+
+        .ui-menuitem-icon{
+            margin-bottom: 10px;
+            display: block;
+            color: #FFF;
+            font-size: 30px;
+            overflow: visible;
+            display: block !important;
+            position: relative !important;
+        }
+
+        .ui-menuitem-text{
+            color : white;
+        }
+    }
+
+}
+
+
+
+.ui-menuitem{
+
+}
+
+
+remove the triangle button on the right side of the submenu 
+.submenu .ui-icon-triangle-1-s{
+    display: none;
+}*/
+
+@import "../am-base/am-config";
+.am-header {
+    background: $am-navbar-bgcolor;
+    
+    .ui-menubar{
+        padding: 0px;
+        border: none;
+        border-radius: 0px;        
+        >.ui-menu-list > .ui-menuitem {
+            > .ui-menuitem-link .ui-menuitem-text {
+                color:black;
+            }
+        }
+    }
+    
+    .am-menubar{
+        padding: 0px;
+    }
+    
+    .am-navbar {
+        height: $am-navbar-height;
+        
+        .am-logo {
+            padding: $am-navbar-div-padding;
+        }
+        
+        img {
+            width:$am-navbar-logo-height;
+            height:auto;
+        }
+    }
+    
+    .am-info {
+        .am-header-txt{
+            color:$primary-text-color;
+            font-size: $am-navbar-info-basefontsize;
+            padding-bottom: 0px;
+        }
+        
+        .txt-gon {
+            
+        }
+        .txt-mctca {
+            
+        }
+        .txt-am {
+            font-size: 20px;
+            padding-left: 7px;
+        }
+    }
+}

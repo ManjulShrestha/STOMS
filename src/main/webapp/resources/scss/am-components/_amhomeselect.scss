@@ -1,0 +1,33 @@
+@import "../am-base/am-config";
+$url : url("\#{resource['images/mteverest.jpg']}");
+.home-thumbnail {
+    background-image: $url;
+    min-width: 100px;
+    min-height:100px;   
+    width:150px;
+    height:150px;
+    background-size: cover;
+}
+
+.home-thumbnail > .overlay {
+    width:inherit;
+    height:inherit;
+    position:absolute;
+    background-color:#000;
+    opacity:0.5;
+}
+
+.home-thumbnail .title {
+    color: white;
+    z-index: 1;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}

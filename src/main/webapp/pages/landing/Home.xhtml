@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!--
+    Created By: Manjul Shrestha
+    Created On: 23-Nov-2016
+    
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"      
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+  <h:head>
+  </h:head>
+  <h:body>
+    <ui:composition template="#{navigationService.base}">
+      <ui:define name="title">
+        #{msg.am}
+      </ui:define>    
+      <ui:define name="breadcrumbs">
+            
+      </ui:define>
+      
+      <ui:define name="body">
+
+        <!-- Growl -->
+        <h:form id="growl_form">
+          <growl id="popup-notification"
+                 showDetail="true"
+                 life="3000"
+                 class="am-ui-growl" />
+        </h:form>
+
+
+        <div style="padding: 1%" >
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <ui:include src="components/Dashboard.xhtml" />                  
+            </div>
+<!--            <div class="col-lg-4 col-md-4 col-sm-6 am-side-summary-bar">                        
+              <ui:include src="components/SideSummaryTable.xhtml" />
+            </div>                    -->
+          </div>                
+        </div>
+      </ui:define>
+    </ui:composition>
+    
+    <style id="antiClickjack">body{display:none !important;}</style>
+      <script type="text/javascript">
+   if (self === top) {
+       var antiClickjack = document.getElementById("antiClickjack");
+       antiClickjack.parentNode.removeChild(antiClickjack);
+   } else {
+       top.location = self.location;
+   }
+      </script>
+  </h:body>
+</html>
+
